@@ -1,0 +1,12 @@
+#header {
+  min-height: 15%;
+  background-color: dodgerblue;
+}
+.container {
+  height: 100%;
+  position: relative;
+  width: 100%;
+}
+.links {
+  color: white !important;
+}

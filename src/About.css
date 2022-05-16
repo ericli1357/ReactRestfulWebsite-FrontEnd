@@ -1,0 +1,22 @@
+.aboutText {
+  font-size: large;
+  border: 1px solid;
+  border-radius: 5px;
+  padding: 10px;
+  height: 100%;
+}
+
+@media (max-width: 767.98px) {
+  .aboutText {
+    font-size: medium;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .aboutBorder {
+    margin-bottom: 10px;
+  }
+  .aboutText {
+    font-size: smaller;
+  }
+}

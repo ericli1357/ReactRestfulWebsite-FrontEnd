@@ -1,0 +1,27 @@
+.homeTitle {
+  font-size: 40pt;
+}
+
+.homeSubtitle {
+  font-size: 25pt;
+}
+
+@media (max-width: 767.98px) {
+  .homeTitle {
+    font-size: 30pt;
+  }
+
+  .homeSubtitle {
+    font-size: 20pt;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .homeTitle {
+    font-size: 20pt;
+  }
+
+  .homeSubtitle {
+    font-size: 15pt;
+  }
+}
