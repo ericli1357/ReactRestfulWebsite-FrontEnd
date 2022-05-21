@@ -43,7 +43,6 @@ export default class Contact extends Component<{}, any> {
         "\nMessage: " +
         this.state.message,
     };
-    const s = "s";
     fetch("http://localhost:5183/api/Home/sendEmail", {
       method: "POST",
       mode: "cors",
