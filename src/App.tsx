@@ -3,7 +3,7 @@ import logo from "./logo.svg";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 import { Home } from "./Home";
-import { Contact } from "./Contact";
+import Contact from "./Contact";
 import { Header } from "./Header";
 import { Footer } from "./Footer";
 import { Container, Row } from "react-bootstrap";
@@ -21,7 +21,7 @@ function App() {
           <Routes>
             <Route path="" element={<Home />} />
             <Route path="Home" element={<Home />} />
-            <Route path="Contact" element={<Contact />} />
+            <Route path="Contact" element={<Contact />}></Route>
             <Route path="About" element={<About />} />
           </Routes>
         </Container>
