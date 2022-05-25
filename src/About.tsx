@@ -1,5 +1,5 @@
 import React from "react";
-import { Form, Row, Col } from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
 import "./About.css";
 
 export const About = () => (

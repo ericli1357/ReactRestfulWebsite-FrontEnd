@@ -1,4 +1,4 @@
-import { Container, Navbar, NavDropdown, Nav } from "react-bootstrap";
+import { Container, Navbar, Nav } from "react-bootstrap";
 import "./Header.css";
 
 export const Header = () => (
@@ -14,6 +14,7 @@ export const Header = () => (
           <Nav.Link href="about">About</Nav.Link>
           <Nav.Link href="contact">Contact</Nav.Link>
           <Nav.Link href="login">Login</Nav.Link>
+          <Nav.Link href="blog">Blog</Nav.Link>
         </Nav>
       </Navbar.Collapse>
     </Container>
