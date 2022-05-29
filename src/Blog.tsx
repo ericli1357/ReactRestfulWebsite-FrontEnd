@@ -5,43 +5,71 @@ export default class Blog extends Component<{}, any> {
   constructor(props: any) {
     super(props);
     this.state = {
+      articles: [],
       categories: [],
     };
   }
 
-  refreshList() {
+  componentDidMount() {
+    fetch("http://localhost:5183/api/Article")
+      .then((response) => response.json())
+      .then((articles) => {
+        this.setState({ articles });
+      });
     fetch("http://localhost:5183/api/Category")
       .then((response) => response.json())
-      .then((data) => {
-        this.setState({ categories: data });
+      .then((categories) => {
+        this.setState({ categories });
       });
   }
-
-  componentDidMount() {
-    this.refreshList();
-  }
+  onChangeCategory = (event: any) => {
+    this.setState({ value: event.target.value });
+    fetch(
+      "http://localhost:5183/api/Article/getArticleByCategory/" +
+        event.target.value
+    )
+      .then((response) => response.json())
+      .then((articles) => {
+        this.setState({ articles });
+      });
+  };
 
   render() {
+    const { articles } = this.state;
     const { categories } = this.state;
-    return (
-      <div>
-        <table className="table table-striped">
-          <thead>
-            <tr>
-              <th>CategoryId</th>
-              <th>CategoryName</th>
-            </tr>
-          </thead>
-          <tbody>
-            {categories.map((cat: any) => (
-              <tr key={cat.CategoryId}>
-                <td>{cat.CategoryId}</td>
-                <td>{cat.CategoryName}</td>
-              </tr>
+    if (articles.length > 1) {
+      return (
+        <div>
+          <select className="form-control" onChange={this.onChangeCategory}>
+            {categories.map((c: any) => (
+              <option key={c.categoryId} value={c.categoryName}>
+                {c.categoryName}
+              </option>
             ))}
-          </tbody>
-        </table>
-      </div>
-    );
+          </select>
+
+          <table className="table">
+            <thead className="thead-dark">
+              <tr>
+                <th>ArticleId</th>
+                <th>Title</th>
+                <th>Body</th>
+                <th>DatePublished</th>
+              </tr>
+            </thead>
+            <tbody>
+              {articles.map((a: any) => (
+                <tr key={a.articleId}>
+                  <td>{a.articleId}</td>
+                  <td>{a.title}</td>
+                  <td>{a.body}</td>
+                  <td>{a.datePublished}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      );
+    }
   }
 }
